@@ -1,0 +1,1042 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Humber River</title>
+  <link rel="icon" type="image/x-icon" href="/src/img/favicon.ico" />
+  <style>
+    @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: "Open Sans";
+      margin: 0;
+      scroll-behavior: smooth;
+      overflow: hidden;
+    }
+
+    header {
+      background-color: #132441;
+      height: 100px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: space-between;
+      padding: 25px;
+    }
+
+    .logo {
+      height: 100%;
+    }
+
+    h1 {
+      color: white;
+      font-size: 24px;
+    }
+
+    h2 {
+      margin-bottom: 15px;
+    }
+
+    .page-nav {
+      background-color: #103f2e;
+    }
+
+    .page-nav nav {
+      margin: 0 auto;
+      width: 75%;
+      padding: 20px;
+      display: flex;
+      flex-direction: row;
+      align-items: center;
+      justify-content: center;
+    }
+
+    hr {
+      border: 0;
+      margin: 0;
+      height: 1px;
+      width: 10%;
+      background: rgba(207, 207, 207, 0.498);
+      margin: 0 20px;
+    }
+
+    .page-nav nav button {
+      padding: 0;
+      width: 35px !important;
+      height: 35px !important;
+      font-size: 16px;
+      border-radius: 50%;
+      border: 1px solid white;
+      background-color: rgb(255, 255, 255);
+      cursor: pointer;
+    }
+
+    .page-nav nav button.complete {
+      border: none;
+      color: rgb(0, 0, 0);
+      background-color: rgb(255, 255, 255);
+    }
+
+    .page-nav nav button.inactive {
+      border: 1px solid rgb(163, 163, 163);
+      color: rgb(163, 163, 163);
+      background-color: #103f2e;
+    }
+
+    .page-nav nav button.active {
+      border: 2px solid rgb(255, 255, 255);
+      color: rgb(255, 255, 255);
+      background-color: #103f2e;
+    }
+
+    .main {
+      display: flex;
+      width: 100vw;
+      height: calc(100vh - 175px);
+    }
+
+    .river-img-container {
+      min-width: 65%;
+      flex: 1;
+      height: 100%;
+      background-size: 100% 100%;
+      background: url("/src/img/river.jpeg") no-repeat center center/cover;
+      position: relative;
+    }
+
+    #ter-display {
+      position: absolute;
+      top: 10px;
+      right: 10px;
+      padding: 10px 20px;
+      background-color: rgba(255, 255, 255, 0.8);
+      border-radius: 5px;
+      font-weight: bold;
+      z-index: 1000;
+      color: black;
+    }
+
+    .overlay {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      background-color: transparent;
+      z-index: 1;
+    }
+
+    .sliders-container {
+      position: relative;
+      width: 35%;
+      max-width: 800px;
+      height: 100%;
+      background-color: #f4f4f4;
+      display: flex;
+      justify-content: left;
+      align-items: flex-start;
+      text-align: left;
+      padding: 30px 30px 75px 30px;
+      overflow: hidden;
+    }
+
+    .content-page {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      left: 0;
+      top: 0;
+      padding: 30px 30px 75px 30px;
+      transition: transform 0.5s ease-in-out;
+      display: none;
+    }
+
+    .content-page.active {
+      display: flex;
+      flex-direction: column;
+      transform: translateX(0);
+    }
+
+    .slide-in-right {
+      transform: translateX(100%);
+      display: flex;
+      flex-direction: column;
+      animation: slideInRight 0.5s forwards;
+    }
+
+    .slide-out-left {
+      transform: translateX(0);
+      animation: slideOutLeft 0.5s forwards;
+    }
+
+    .slide-in-left {
+      transform: translateX(-100%);
+      display: flex;
+      flex-direction: column;
+      animation: slideInLeft 0.5s forwards;
+    }
+
+    .slide-out-right {
+      transform: translateX(0);
+      animation: slideOutRight 0.5s forwards;
+    }
+
+    @keyframes slideInRight {
+      from {
+        transform: translateX(100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOutLeft {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(-100%);
+      }
+    }
+
+    @keyframes slideInLeft {
+      from {
+        transform: translateX(-100%);
+      }
+
+      to {
+        transform: translateX(0);
+      }
+    }
+
+    @keyframes slideOutRight {
+      from {
+        transform: translateX(0);
+      }
+
+      to {
+        transform: translateX(100%);
+      }
+    }
+
+    .explore-data {
+      display: flex;
+      flex-direction: row;
+      align-items: baseline;
+      flex-wrap: wrap;
+      position: fixed;
+      bottom: 0;
+      right: 0;
+      padding: 10px 20px;
+      width: 35%;
+      max-width: 800px;
+      z-index: 100;
+    }
+
+    .explore-data-btn {
+      background-color: #103f2e;
+      color: #f4f4f4;
+      border: none;
+      border-radius: 25px;
+      padding: 10px 20px;
+      font-size: 16px;
+      font-weight: 500;
+      cursor: pointer;
+    }
+
+    .explore-data-btn:hover {
+      background-color: #222222;
+    }
+
+    .data-link {
+      display: none;
+      list-style: none;
+      padding: 0;
+    }
+
+    .data-link li {
+      margin: 10px 0px 10px 13px;
+      list-style: none;
+    }
+
+    .data-link a {
+      color: #103f2e;
+      font-size: 16px;
+    }
+
+    .data-link a:hover {
+      color: #2d5e44;
+    }
+
+    .intro-text {
+      flex: 0 0 auto;
+    }
+
+    .intro-text p {
+      padding-bottom: 10px;
+    }
+
+    .intro-text a,
+    .continue-link {
+      color: #0357e6;
+      transition: 0.3s color;
+    }
+
+    .intro-text a:hover,
+    .continue-link:hover {
+      color: #0357e6cc;
+    }
+
+    .sliders {
+      flex: 1 1 auto;
+      overflow-y: scroll;
+      margin-top: 20px;
+      padding-right: 30px;
+    }
+
+    .sliders::-webkit-scrollbar {
+      width: 10px;
+    }
+
+    .sliders::-webkit-scrollbar-thumb {
+      background-color: darkgrey;
+      border-radius: 5px;
+    }
+
+    .sliders::-webkit-scrollbar-track {
+      background-color: lightgrey;
+      border-radius: 5px;
+    }
+
+    .slider-container {
+      margin-bottom: 15px;
+    }
+
+    .slider-container label {
+      display: block;
+      margin-bottom: 5px;
+    }
+
+    .slider-container input[type="range"] {
+      width: 100%;
+      -webkit-appearance: none;
+      background: transparent;
+      position: relative;
+    }
+
+    input[type="range"]::-webkit-slider-thumb {
+      -webkit-appearance: none;
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    input[type="range"]::-moz-range-thumb {
+      width: 15px;
+      height: 15px;
+      border-radius: 50%;
+      cursor: pointer;
+      border: none;
+      position: relative;
+      top: 50%;
+      transform: translateY(-50%);
+    }
+
+    input[type="range"].green::-webkit-slider-thumb {
+      background: green;
+    }
+
+    input[type="range"].green::-moz-range-thumb {
+      background: green;
+    }
+
+    input[type="range"].yellow::-webkit-slider-thumb {
+      background: #FFA500;
+    }
+
+    input[type="range"].yellow::-moz-range-thumb {
+      background: #FFA500;
+    }
+
+    input[type="range"].red::-webkit-slider-thumb {
+      background: red;
+    }
+
+    input[type="range"].red::-moz-range-thumb {
+      background: red;
+    }
+
+    input[type="range"]::-webkit-slider-runnable-track {
+      height: 5px;
+      border-radius: 2.5px;
+    }
+
+    input[type="range"]::-moz-range-track {
+      height: 5px;
+      border-radius: 2.5px;
+    }
+
+    input[type="range"].green::-webkit-slider-runnable-track {
+      background: rgba(0, 128, 0, 0.5);
+    }
+
+    input[type="range"].green::-moz-range-track {
+      background: rgba(0, 128, 0, 0.5);
+    }
+
+    input[type="range"].yellow::-webkit-slider-runnable-track {
+      background: rgba(255, 165, 0, 0.5);
+    }
+
+    input[type="range"].yellow::-moz-range-track {
+      background: rgba(255, 165, 0, 0.5);
+    }
+
+    input[type="range"].red::-webkit-slider-runnable-track {
+      background: rgba(255, 0, 0, 0.5);
+    }
+
+    input[type="range"].red::-moz-range-track {
+      background: rgba(255, 0, 0, 0.5);
+    }
+
+    .slider-explanation {
+      font-size: 12px;
+      color: #666;
+      margin-top: 5px;
+    }
+
+    .page-nav-button {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .page-nav-button span {
+      color: #A3A3A3;
+    }
+
+    .page-nav-button button.active~span,
+    .page-nav-button button.complete~span {
+      color: white !important;
+    }
+
+    @media only screen and (max-width: 1024px) {
+      h1 {
+        font-size: 18px;
+      }
+    }
+
+    @media only screen and (max-width: 768px) {
+      header {
+        padding: 20px;
+      }
+
+      h1 {
+        padding-left: 25px;
+        text-align: right;
+      }
+
+      .logo {
+        width: 25%;
+        min-width: 200px;
+      }
+
+      .page-nav {
+        padding: 15px;
+      }
+    }
+
+    @media only screen and (max-width: 425px) {
+      header {
+        padding: 20px;
+        flex-wrap: wrap;
+      }
+
+      h1 {
+        padding-left: 0;
+        text-align: left;
+        margin-bottom: 0;
+        font-size: 16px;
+      }
+
+      .logo {
+        width: 40%;
+      }
+
+      .page-nav nav {
+        width: 100%;
+      }
+
+      .page-nav nav button {
+        width: 30px !important;
+        height: 30px !important;
+        font-size: 15px;
+      }
+
+      hr {
+        margin: 0 5px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+  <header>
+    <a href="https://humber.ca">
+      <img class="logo" src="src/img/humber_logo.png" alt="Humber Polytechnic Logo" />
+    </a>
+    <h1>The Life in the Humber River / Gabekanaang-ziibi / Niwa'ah Onega'gaih'ih</h1>
+  </header>
+  <section class="page-nav">
+    <nav class="page-nav" role="navigation" aria-label="Page Navigation">
+      <div class="page-nav-button">
+        <button class="inactive" aria-label="Step 1" data-page="1">1</button>
+        <span>Number of Species</span>
+      </div>
+      <hr />
+      <div class="page-nav-button">
+        <button class="inactive" aria-label="Step 2" data-page="2">2</button>
+        <span>Species Distribution</span>
+      </div>
+      <hr />
+      <div class="page-nav-button">
+        <button class="inactive" aria-label="Step 3" data-page="3">3</button>
+        <span>Insects</span>
+      </div>
+      <hr />
+      <div class="page-nav-button">
+        <button class="inactive" aria-label="Step 4" data-page="4">4</button>
+        <span>Overview</span>
+      </div>
+    </nav>
+  </section>
+  <section class="main">
+    <div class="river-img-container" role="img" aria-label="Humber River">
+      <div id="ter-display">
+        TER: <span id="ter-score">0</span> - <span id="ter-value">GREEN Unimpaired</span>
+      </div>
+      <div class="overlay"></div>
+    </div>
+    <div class="sliders-container">
+      <div id="page-intro" class="content-page active">
+        <div class="intro-text">
+          <p>Welcome to the Humber River Health Study. This interactive experience will guide you through our findings
+            on the ecological health of the Humber River ecosystem.</p>
+          <p>This study is a collaboration between Humber Polytechnic and local conservation authorities to monitor and
+            improve water quality and biodiversity in this important watershed.</p>
+          <a href="#" class="continue-link" data-target="1">Begin Journey <span aria-hidden="true">></span></a>
+          <br />
+          <img src="/src/img/bugs-template.webp" alt="a template of all bugs" width="80%" style="margin-top: 15px;">
+        </div>
+      </div>
+      <div id="page-1" class="content-page">
+        <div class="intro-text">
+          <h2>
+            Number of Species
+          </h2>
+          <p>A diverse sample indicates the river is healthy enough to support many species. A healthy diversity for the
+            Humber River would include more than 12 species in a sample, with a fairly even distribution of all species,
+            and not too many of any single species.</p>
+          <p>Species slider default setting is healthiest setting.</p>
+          <p>Move the slider up and down to see what happens to the river when diversity is limited.</p>
+        </div>
+        <div class="sliders">
+          <div class="slider-container">
+            <label for="species-slider-1">Species:</label>
+            <input type="range" id="species-slider-1" min="0" max="28" step="1" value="14">
+            <span id="species-value-1">14</span>
+            <p class="slider-explanation">Health levels: Healthy (≥12), Unhealthy (11), Concerning (≤10)</p>
+          </div>
+          <div class="slider-container">
+            <label for="dominant-species-slider-1">Dominant Species:</label>
+            <input type="range" id="dominant-species-slider-1" min="0" max="100" step="1" value="30">
+            <span id="dominant-species-value-1">30</span>
+            <p class="slider-explanation">Health levels: Healthy (≤40), Unhealthy (41-45), Concerning (≥46)</p>
+          </div>
+        </div>
+        <a href="#" class="continue-link" data-target="2">Continue to Step 2</a>
+      </div>
+      <div id="page-2" class="content-page">
+        <div class="intro-text">
+          <h2>
+            Species Distribution
+          </h2>
+          <p>Some types of species can tolerate pollution better than others. When we collect a sample of 100 species,
+            we can
+            evaluate river health by looking at the representation of particular species in the sample.</p>
+          <p>Here is a healthy distribution of worms, snails, and sowbugs. Adjust the levels to see what happens to the
+            river.</p>
+          <p>Click explore data to explore the distribution of worms, snails, and sowbugs in previous years. Are we
+            getting better or worse?
+          </p>
+        </div>
+        <div class="sliders">
+          <div class="slider-container">
+            <label for="worms-slider-2">Worms:</label>
+            <input type="range" id="worms-slider-2" min="0" max="100" step="1" value="5">
+            <span id="worms-value-2">5</span>
+            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-30), Concerning (≥31)</p>
+          </div>
+          <div class="slider-container">
+            <label for="snails-slider-2">Snails:</label>
+            <input type="range" id="snails-slider-2" min="0" max="100" step="1" value="0">
+            <span id="snails-value-2">0</span>
+            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-10), Concerning (≥11)</p>
+          </div>
+          <div class="slider-container">
+            <label for="sowbugs-slider-2">Sowbugs:</label>
+            <input type="range" id="sowbugs-slider-2" min="0" max="100" step="1" value="0">
+            <span id="sowbugs-value-2">0</span>
+            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-5), Concerning (≥6)</p>
+          </div>
+        </div>
+        <a href="#" class="continue-link" data-target="3">Continue to Step 3</a>
+      </div>
+      <div id="page-3" class="content-page">
+        <div class="intro-text">
+          <h2>
+            Insects
+          </h2>
+          <p>Insects are a special group of invertebrate species that can tell us even more about river health. A
+            healthy sample should be mostly insects but not all insects. Furthermore, the presence and abundance of
+            different insect species can indicate different things.</p>
+          <p>Here is a healthy distribution of insects and subgroups of insects. Adjust the levels to see what happens
+            to the river.</p>
+          <p>Click explore data to explore the distribution of insects. Look at the amounts from previous years. Are we
+            getting better or
+            worse?</p>
+        </div>
+        <div class="sliders">
+          <div class="slider-container">
+            <label for="insects-slider-3">Insects:</label>
+            <input type="range" id="insects-slider-3" min="0" max="100" step="1" value="45">
+            <span id="insects-value-3">45</span>
+            <p class="slider-explanation">Health levels: Unhealthy (41-50, 81-90), Concerning (0-40, 51-80, 91-100)</p>
+          </div>
+          <div class="slider-container">
+            <label for="flies-slider-3">Flies:</label>
+            <input type="range" id="flies-slider-3" min="0" max="100" step="1" value="30">
+            <span id="flies-value-3">30</span>
+            <p class="slider-explanation">Health levels: Healthy (21-45), Unhealthy (16-20, 46-50), Concerning (0-15,
+              51-100)</p>
+          </div>
+          <div class="slider-container">
+            <label for="midges-slider-3">Midges:</label>
+            <input type="range" id="midges-slider-3" min="0" max="100" step="1" value="5">
+            <span id="midges-value-3">5</span>
+            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-40), Concerning (≥41)</p>
+          </div>
+          <div class="slider-container">
+            <label for="ept-index-slider-3">EPT Index:</label>
+            <input type="range" id="ept-index-slider-3" min="0" max="100" step="1" value="15">
+            <span id="ept-index-value-3">15</span>
+            <p class="slider-explanation">Health levels: Healthy (≥11), Unhealthy (6-10), Concerning (≤5)</p>
+          </div>
+        </div>
+        <a href="#" class="continue-link" data-target="4">Continue to Step 4</a>
+      </div>
+      <div id="page-4" class="content-page">
+        <div class="intro-text">
+          <h2>
+            Overview
+          </h2>
+          <p>To get an accurate picture of river health we like to take into account all the indicators at once. We also
+            include the Hilsenhoff Biotic Index (HBI), which is calculated with a specific pollution weighting for each
+            species, where lower HBI values indicate better river health.</p>
+          <p>A healthy sample should have more than half of the indicators pointing to healthy river conditions.</p>
+          <p>Click explore data to look at the indicators from previous years. Are we getting better or worse?</p>
+        </div>
+        <div class="sliders">
+          <div class="slider-container">
+            <label for="species-slider-4">Species:</label>
+            <input type="range" id="species-slider-4" min="0" max="28" step="1" value="14">
+            <span id="species-value-4">14</span>
+            <p class="slider-explanation">Health levels: Healthy (≥12), Unhealthy (11), Concerning (≤10)</p>
+          </div>
+          <div class="slider-container">
+            <label for="dominant-species-slider-4">Dominant Species:</label>
+            <input type="range" id="dominant-species-slider-4" min="0" max="100" step="1" value="30">
+            <span id="dominant-species-value-4">30</span>
+            <p class="slider-explanation">Health levels: Healthy (≤40), Unhealthy (41-45), Concerning (≥46)</p>
+          </div>
+          <div class="slider-container">
+            <label for="worms-slider-4">Worms:</label>
+            <input type="range" id="worms-slider-4" min="0" max="100" step="1" value="5">
+            <span id="worms-value-4">5</span>
+            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-30), Concerning (≥31)</p>
+          </div>
+          <div class="slider-container">
+            <label for="snails-slider-4">Snails:</label>
+            <input type="range" id="snails-slider-4" min="0" max="100" step="1" value="0">
+            <span id="snails-value-4">0</span>
+            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-10), Concerning (≥11)</p>
+          </div>
+          <div class="slider-container">
+            <label for="sowbugs-slider-4">Sowbugs:</label>
+            <input type="range" id="sowbugs-slider-4" min="0" max="100" step="1" value="0">
+            <span id="sowbugs-value-4">0</span>
+            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-5), Concerning (≥6)</p>
+          </div>
+          <div class="slider-container">
+            <label for="insects-slider-4">Insects:</label>
+            <input type="range" id="insects-slider-4" min="0" max="100" step="1" value="45">
+            <span id="insects-value-4">45</span>
+            <p class="slider-explanation">Health levels: Unhealthy (41-50, 81-90), Concerning (0-40, 51-80, 91-100)</p>
+          </div>
+          <div class="slider-container">
+            <label for="flies-slider-4">Flies:</label>
+            <input type="range" id="flies-slider-4" min="0" max="100" step="1" value="30">
+            <span id="flies-value-4">30</span>
+            <p class="slider-explanation">Health levels: Healthy (21-45), Unhealthy (16-20, 46-50), Concerning (0-15,
+              51-100)</p>
+          </div>
+          <div class="slider-container">
+            <label for="midges-slider-4">Midges:</label>
+            <input type="range" id="midges-slider-4" min="0" max="100" step="1" value="5">
+            <span id="midges-value-4">5</span>
+            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-40), Concerning (≥41)</p>
+          </div>
+          <div class="slider-container">
+            <label for="ept-index-slider-4">EPT Index:</label>
+            <input type="range" id="ept-index-slider-4" min="0" max="100" step="1" value="15">
+            <span id="ept-index-value-4">15</span>
+            <p class="slider-explanation">Health levels: Healthy (≥11), Unhealthy (6-10), Concerning (≤5)</p>
+          </div>
+          <div class="slider-container">
+            <label for="hbi-slider-4">Hilsenhoff Biotic Index (HBI):</label>
+            <input type="range" id="hbi-slider-4" min="0" max="10" step="0.1" value="3.0">
+            <span id="hbi-value-4">3.0</span>
+            <p class="slider-explanation">Health levels: Healthy (≤5), Unhealthy (5.1-7), Concerning (>7)</p>
+          </div>
+        </div>
+        <a href="#" class="continue-link" data-target="intro">Start Over <span aria-hidden="true">></span></a>
+      </div>
+      <div class="explore-data">
+        <button class="explore-data-btn" id="explore-data-btn">Explore data</button>
+        <ul class="data-link" id="data-link">
+          <li><a href="#" aria-label="Explore data from 2023">2023</a></li>
+          <li><a href="#" aria-label="Explore data from 2024">2024</a></li>
+          <li><a href="#" aria-label="View Default Data">View Default Data</a></li>
+        </ul>
+      </div>
+    </div>
+  </section>
+  <script>
+    const navButtons = document.querySelectorAll('.page-nav button');
+    const contentPages = document.querySelectorAll('.content-page');
+    const continueLinks = document.querySelectorAll('.continue-link');
+    let currentPageId = 'page-intro';
+
+    function navigateToPage(newPageId) {
+      if (newPageId === currentPageId) return;
+      const currentPage = document.getElementById(currentPageId);
+      const newPage = document.getElementById(newPageId);
+
+      const isNumberedNewPage = newPageId !== 'page-intro';
+      const isNumberedCurrentPage = currentPageId !== 'page-intro';
+      let animationDirection = 'right';
+
+      if (isNumberedCurrentPage && isNumberedNewPage) {
+        const currentPageNum = parseInt(currentPageId.replace('page-', ''));
+        const newPageNum = parseInt(newPageId.replace('page-', ''));
+        animationDirection = newPageNum > currentPageNum ? 'right' : 'left';
+      } else if (!isNumberedCurrentPage && isNumberedNewPage) {
+        animationDirection = 'right';
+      } else if (isNumberedCurrentPage && !isNumberedNewPage) {
+        animationDirection = 'left';
+      }
+
+      if (animationDirection === 'right') {
+        currentPage.classList.add('slide-out-left');
+        newPage.classList.add('slide-in-right');
+      } else {
+        currentPage.classList.add('slide-out-right');
+        newPage.classList.add('slide-in-left');
+      }
+
+      newPage.style.display = 'flex';
+
+      if (isNumberedNewPage) {
+        updateButtonStates(parseInt(newPageId.replace('page-', '')));
+      } else {
+        resetButtonStates();
+      }
+
+      setTimeout(() => {
+        currentPage.classList.remove('active', 'slide-out-left', 'slide-out-right');
+        currentPage.style.display = 'none';
+        newPage.classList.remove('slide-in-right', 'slide-in-left');
+        newPage.classList.add('active');
+        currentPageId = newPageId;
+      }, 500);
+    }
+
+    function updateButtonStates(activePageNum) {
+      navButtons.forEach(button => {
+        const buttonPageNum = parseInt(button.getAttribute('data-page'));
+        button.classList.remove('active', 'complete', 'inactive');
+        if (buttonPageNum === activePageNum) button.classList.add('active');
+        else if (buttonPageNum < activePageNum) button.classList.add('complete');
+        else button.classList.add('inactive');
+      });
+    }
+
+    function resetButtonStates() {
+      navButtons.forEach(button => {
+        button.classList.remove('active', 'complete');
+        button.classList.add('inactive');
+      });
+    }
+
+    navButtons.forEach(button => {
+      button.addEventListener('click', () => {
+        const pageNum = button.getAttribute('data-page');
+        navigateToPage(`page-${pageNum}`);
+      });
+    });
+
+    continueLinks.forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const targetPage = link.getAttribute('data-target');
+        const pageId = isNaN(targetPage) ? 'page-intro' : `page-${targetPage}`;
+        navigateToPage(pageId);
+      });
+    });
+
+    const exploreBtn = document.getElementById("explore-data-btn");
+    const dataLinks = document.getElementById("data-link");
+
+    exploreBtn.addEventListener("click", () => {
+      dataLinks.style.display = dataLinks.style.display === "none" || dataLinks.style.display === "" ? "flex" : "none";
+    });
+
+    const indicatorValues = {
+      species: 14,
+      dominantSpecies: 30,
+      worms: 5,
+      snails: 0,
+      sowbugs: 0,
+      insects: 45,
+      flies: 30,
+      midges: 5,
+      eptIndex: 15,
+      hbi: 3.0
+    };
+
+    const sliderMappings = {
+      'species-slider-1': 'species',
+      'dominant-species-slider-1': 'dominantSpecies',
+      'worms-slider-2': 'worms',
+      'snails-slider-2': 'snails',
+      'sowbugs-slider-2': 'sowbugs',
+      'insects-slider-3': 'insects',
+      'flies-slider-3': 'flies',
+      'midges-slider-3': 'midges',
+      'ept-index-slider-3': 'eptIndex',
+      'species-slider-4': 'species',
+      'dominant-species-slider-4': 'dominantSpecies',
+      'worms-slider-4': 'worms',
+      'snails-slider-4': 'snails',
+      'sowbugs-slider-4': 'sowbugs',
+      'insects-slider-4': 'insects',
+      'flies-slider-4': 'flies',
+      'midges-slider-4': 'midges',
+      'ept-index-slider-4': 'eptIndex',
+      'hbi-slider-4': 'hbi'
+    };
+
+    function updateSliders(indicator, value) {
+      for (const [sliderId, ind] of Object.entries(sliderMappings)) {
+        if (ind === indicator) {
+          const slider = document.getElementById(sliderId);
+          if (slider) {
+            slider.value = value;
+            const valueSpan = slider.nextElementSibling;
+            valueSpan.textContent = value;
+            const healthLevel = getHealthLevel(indicator, value);
+            updateSliderColor(sliderId, healthLevel);
+          }
+        }
+      }
+    }
+
+    function getHealthLevel(indicator, value) {
+      switch (indicator) {
+        case 'species':
+          if (value >= 12) return 'green';
+          else if (value === 11) return 'yellow';
+          else return 'red';
+        case 'dominantSpecies':
+          if (value <= 40) return 'green';
+          else if (value <= 45) return 'yellow';
+          else return 'red';
+        case 'worms':
+          if (value <= 10) return 'green';
+          else if (value <= 30) return 'yellow';
+          else return 'red';
+        case 'snails':
+          if (value === 0) return 'green';
+          else if (value <= 10) return 'yellow';
+          else return 'red';
+        case 'sowbugs':
+          if (value === 0) return 'green';
+          else if (value <= 5) return 'yellow';
+          else return 'red';
+        case 'insects':
+          if ((value > 40 && value <= 50) || (value > 80 && value <= 90)) return 'yellow';
+          else return 'red';
+        case 'flies':
+          if (value >= 21 && value <= 45) return 'green';
+          else if ((value >= 16 && value <= 20) || (value >= 46 && value <= 50)) return 'yellow';
+          else return 'red';
+        case 'midges':
+          if (value <= 10) return 'green';
+          else if (value <= 40) return 'yellow';
+          else return 'red';
+        case 'eptIndex':
+          if (value >= 11) return 'green';
+          else if (value >= 6) return 'yellow';
+          else return 'red';
+        case 'hbi':
+          if (value <= 5) return 'green';
+          else if (value <= 7) return 'yellow';
+          else return 'red';
+        default:
+          return 'unknown';
+      }
+    }
+
+    function updateSliderColor(sliderId, healthLevel) {
+      const slider = document.getElementById(sliderId);
+      if (slider) {
+        slider.classList.remove('green', 'yellow', 'red');
+        slider.classList.add(healthLevel);
+      }
+    }
+
+    function calculateTER() {
+      let sum = 0;
+      const ratings = { green: 0, yellow: 3, red: 5 };
+      for (const indicator in indicatorValues) {
+        const value = indicatorValues[indicator];
+        const healthLevel = getHealthLevel(indicator, value);
+        sum += ratings[healthLevel] || 0;
+      }
+
+      let ter, overlayColor, textColor;
+      if (sum <= 19) {
+        ter = 'GREEN Unimpaired';
+        overlayColor = 'transparent';
+        textColor = 'green';
+      } else if (sum <= 24) {
+        ter = 'YELLOW-GREEN Potentially Impaired';
+        overlayColor = '#ADFF2F';
+        textColor = '#ADFF2F';
+      } else if (sum <= 29) {
+        ter = 'YELLOW Potentially Impaired';
+        overlayColor = '#FFD700';
+        textColor = '#FFD700';
+      } else if (sum <= 34) {
+        ter = 'ORANGE Potentially Impaired';
+        overlayColor = '#FFA500';
+        textColor = 'orange';
+      } else {
+        ter = 'RED Impaired';
+        overlayColor = '#FF0000';
+        textColor = 'red';
+      }
+
+      const terScore = document.getElementById('ter-score');
+      const terValue = document.getElementById('ter-value');
+      const terDisplay = document.getElementById('ter-display');
+      const overlay = document.querySelector('.overlay');
+
+      if (terScore) terScore.textContent = sum;
+      if (terValue) terValue.textContent = ter;
+      if (terDisplay) {
+        terDisplay.style.backgroundColor = textColor;
+        terDisplay.style.color = (textColor === '#ADFF2F' || textColor === '#FFD700') ? 'black' : 'white';
+      }
+      if (overlay) {
+        overlay.style.backgroundColor = overlayColor;
+        overlay.style.opacity = overlayColor === 'transparent' ? '0' : '0.5';
+      }
+
+      console.log("Sum:", sum, "TER:", ter);
+    }
+
+    for (const [sliderId, indicator] of Object.entries(sliderMappings)) {
+      const slider = document.getElementById(sliderId);
+      if (slider) {
+        slider.value = indicatorValues[indicator];
+        const valueSpan = slider.nextElementSibling;
+        valueSpan.textContent = indicatorValues[indicator];
+        const healthLevel = getHealthLevel(indicator, indicatorValues[indicator]);
+        updateSliderColor(sliderId, healthLevel);
+      }
+    }
+
+    document.querySelectorAll('input[type="range"]').forEach(slider => {
+      slider.addEventListener('input', function () {
+        const sliderId = this.id;
+        const indicator = sliderMappings[sliderId];
+        const value = parseFloat(this.value);
+        indicatorValues[indicator] = value;
+        updateSliders(indicator, value);
+        calculateTER();
+      });
+    });
+
+    const data = {
+      2023: { species: 15, 'dominant-species': 25, worms: 8, snails: 2, sowbugs: 1, insects: 60, flies: 30, midges: 10, 'ept-index': 20, hbi: 4.5 },
+      2024: { species: 12, 'dominant-species': 35, worms: 12, snails: 5, sowbugs: 3, insects: 55, flies: 28, midges: 15, 'ept-index': 18, hbi: 5.0 },
+      defaultValues: {
+        species: 14, dominantSpecies: 30, worms: 5, snails: 0, sowbugs: 0, insects: 45, flies: 30, midges: 5, eptIndex: 15, hbi: 3.0
+      }
+    };
+
+    document.querySelectorAll('#data-link a').forEach(link => {
+      link.addEventListener('click', (e) => {
+        e.preventDefault();
+        const linkText = link.textContent;
+        if (linkText === 'View Default Data') {
+          // Reset to default values
+          const defaultValues = data.defaultValues;
+          for (const [indicator, value] of Object.entries(defaultValues)) {
+            indicatorValues[indicator] = value;
+            updateSliders(indicator, value);
+          }
+        } else {
+          // Load data for 2023 or 2024
+          const year = linkText;
+          for (const [key, value] of Object.entries(data[year])) {
+            const indicator = key.replace('ept-index', 'eptIndex').replace('dominant-species', 'dominantSpecies');
+            indicatorValues[indicator] = value;
+            updateSliders(indicator, value);
+          }
+        }
+        calculateTER();
+      });
+    });
+
+    calculateTER();
+  </script>
+</body>
+
+</html>
