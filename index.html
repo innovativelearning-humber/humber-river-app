@@ -5,7 +5,7 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Humber River</title>
-  <link rel="icon" type="image/x-icon" href="/src/img/favicon.ico" />
+  <link rel="icon" type="image/x-icon" href="../src/img/favicon.ico" />
   <style>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
@@ -558,13 +558,14 @@
         <div class="sliders">
           <div class="slider-container">
             <label for="species-slider-1">Species:</label>
-            <input type="range" id="species-slider-1" min="0" max="28" step="1" value="14">
+            <input type="range" id="species-slider-1" class="species-slider" min="0" max="28" step="1" value="14">
             <span id="species-value-1">14</span>
             <p class="slider-explanation">Health levels: Healthy (≥12), Unhealthy (11), Concerning (≤10)</p>
           </div>
           <div class="slider-container">
             <label for="dominant-species-slider-1">Dominant Species:</label>
-            <input type="range" id="dominant-species-slider-1" min="0" max="100" step="1" value="30">
+            <input type="range" id="dominant-species-slider-1" class="dominant-species-slider" min="0" max="100"
+              step="1" value="30">
             <span id="dominant-species-value-1">30</span>
             <p class="slider-explanation">Health levels: Healthy (≤40), Unhealthy (41-45), Concerning (≥46)</p>
           </div>
@@ -588,19 +589,19 @@
         <div class="sliders">
           <div class="slider-container">
             <label for="worms-slider-2">Worms:</label>
-            <input type="range" id="worms-slider-2" min="0" max="100" step="1" value="5">
+            <input type="range" id="worms-slider-2" class="worms-slider" min="0" max="100" step="1" value="5">
             <span id="worms-value-2">5</span>
             <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-30), Concerning (≥31)</p>
           </div>
           <div class="slider-container">
             <label for="snails-slider-2">Snails:</label>
-            <input type="range" id="snails-slider-2" min="0" max="100" step="1" value="0">
+            <input type="range" id="snails-slider-2" class="snails-slider" min="0" max="100" step="1" value="0">
             <span id="snails-value-2">0</span>
             <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-10), Concerning (≥11)</p>
           </div>
           <div class="slider-container">
             <label for="sowbugs-slider-2">Sowbugs:</label>
-            <input type="range" id="sowbugs-slider-2" min="0" max="100" step="1" value="0">
+            <input type="range" id="sowbugs-slider-2" class="sowbugs-slider" min="0" max="100" step="1" value="0">
             <span id="sowbugs-value-2">0</span>
             <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-5), Concerning (≥6)</p>
           </div>
@@ -624,26 +625,27 @@
         <div class="sliders">
           <div class="slider-container">
             <label for="insects-slider-3">Insects:</label>
-            <input type="range" id="insects-slider-3" min="0" max="100" step="1" value="45">
-            <span id="insects-value-3">45</span>
-            <p class="slider-explanation">Health levels: Unhealthy (41-50, 81-90), Concerning (0-40, 51-80, 91-100)</p>
+            <input type="range" id="insects-slider-3" class="insects-slider" min="0" max="100" step="1" value="50">
+            <span id="insects-value-3">50</span>
+            <p class="slider-explanation">Health levels: Healthy (50-80), Unhealthy (41-49, 81-90), Concerning (0-40,
+              91-100)</p>
           </div>
           <div class="slider-container">
             <label for="flies-slider-3">Flies:</label>
-            <input type="range" id="flies-slider-3" min="0" max="100" step="1" value="30">
+            <input type="range" id="flies-slider-3" class="flies-slider" min="0" max="100" step="1" value="30">
             <span id="flies-value-3">30</span>
             <p class="slider-explanation">Health levels: Healthy (21-45), Unhealthy (16-20, 46-50), Concerning (0-15,
               51-100)</p>
           </div>
           <div class="slider-container">
             <label for="midges-slider-3">Midges:</label>
-            <input type="range" id="midges-slider-3" min="0" max="100" step="1" value="5">
+            <input type="range" id="midges-slider-3" class="midges-slider" min="0" max="100" step="1" value="5">
             <span id="midges-value-3">5</span>
             <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-40), Concerning (≥41)</p>
           </div>
           <div class="slider-container">
             <label for="ept-index-slider-3">EPT Index:</label>
-            <input type="range" id="ept-index-slider-3" min="0" max="100" step="1" value="15">
+            <input type="range" id="ept-index-slider-3" class="ept-slider" min="0" max="100" step="1" value="15">
             <span id="ept-index-value-3">15</span>
             <p class="slider-explanation">Health levels: Healthy (≥11), Unhealthy (6-10), Concerning (≤5)</p>
           </div>
@@ -664,62 +666,64 @@
         <div class="sliders">
           <div class="slider-container">
             <label for="species-slider-4">Species:</label>
-            <input type="range" id="species-slider-4" min="0" max="28" step="1" value="14">
+            <input type="range" id="species-slider-4" class="species-slider" min="0" max="28" step="1" value="14">
             <span id="species-value-4">14</span>
             <p class="slider-explanation">Health levels: Healthy (≥12), Unhealthy (11), Concerning (≤10)</p>
           </div>
           <div class="slider-container">
             <label for="dominant-species-slider-4">Dominant Species:</label>
-            <input type="range" id="dominant-species-slider-4" min="0" max="100" step="1" value="30">
+            <input type="range" id="dominant-species-slider-4" class="dominant-species-slider" min="0" max="100"
+              step="1" value="30">
             <span id="dominant-species-value-4">30</span>
             <p class="slider-explanation">Health levels: Healthy (≤40), Unhealthy (41-45), Concerning (≥46)</p>
           </div>
           <div class="slider-container">
             <label for="worms-slider-4">Worms:</label>
-            <input type="range" id="worms-slider-4" min="0" max="100" step="1" value="5">
+            <input type="range" id="worms-slider-4" class="worms-slider" min="0" max="100" step="1" value="5">
             <span id="worms-value-4">5</span>
             <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-30), Concerning (≥31)</p>
           </div>
           <div class="slider-container">
             <label for="snails-slider-4">Snails:</label>
-            <input type="range" id="snails-slider-4" min="0" max="100" step="1" value="0">
+            <input type="range" id="snails-slider-4" class="snails-slider" min="0" max="100" step="1" value="0">
             <span id="snails-value-4">0</span>
             <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-10), Concerning (≥11)</p>
           </div>
           <div class="slider-container">
             <label for="sowbugs-slider-4">Sowbugs:</label>
-            <input type="range" id="sowbugs-slider-4" min="0" max="100" step="1" value="0">
+            <input type="range" id="sowbugs-slider-4" class="sowbugs-slider" min="0" max="100" step="1" value="0">
             <span id="sowbugs-value-4">0</span>
             <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-5), Concerning (≥6)</p>
           </div>
           <div class="slider-container">
             <label for="insects-slider-4">Insects:</label>
-            <input type="range" id="insects-slider-4" min="0" max="100" step="1" value="45">
-            <span id="insects-value-4">45</span>
-            <p class="slider-explanation">Health levels: Unhealthy (41-50, 81-90), Concerning (0-40, 51-80, 91-100)</p>
+            <input type="range" id="insects-slider-4" class="insects-slider" min="0" max="100" step="1" value="50">
+            <span id="insects-value-4">50</span>
+            <p class="slider-explanation">Health levels: Healthy (50-80), Unhealthy (41-49, 81-90), Concerning (0-40,
+              91-100)</p>
           </div>
           <div class="slider-container">
             <label for="flies-slider-4">Flies:</label>
-            <input type="range" id="flies-slider-4" min="0" max="100" step="1" value="30">
+            <input type="range" id="flies-slider-4" class="flies-slider" min="0" max="100" step="1" value="30">
             <span id="flies-value-4">30</span>
             <p class="slider-explanation">Health levels: Healthy (21-45), Unhealthy (16-20, 46-50), Concerning (0-15,
               51-100)</p>
           </div>
           <div class="slider-container">
             <label for="midges-slider-4">Midges:</label>
-            <input type="range" id="midges-slider-4" min="0" max="100" step="1" value="5">
+            <input type="range" id="midges-slider-4" class="midges-slider" min="0" max="100" step="1" value="5">
             <span id="midges-value-4">5</span>
             <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-40), Concerning (≥41)</p>
           </div>
           <div class="slider-container">
             <label for="ept-index-slider-4">EPT Index:</label>
-            <input type="range" id="ept-index-slider-4" min="0" max="100" step="1" value="15">
+            <input type="range" id="ept-index-slider-4" class="ept-slider" min="0" max="100" step="1" value="15">
             <span id="ept-index-value-4">15</span>
             <p class="slider-explanation">Health levels: Healthy (≥11), Unhealthy (6-10), Concerning (≤5)</p>
           </div>
           <div class="slider-container">
             <label for="hbi-slider-4">Hilsenhoff Biotic Index (HBI):</label>
-            <input type="range" id="hbi-slider-4" min="0" max="10" step="0.1" value="3.0">
+            <input type="range" id="hbi-slider-4" class="hbi-slider" min="0" max="10" step="0.1" value="3.0">
             <span id="hbi-value-4">3.0</span>
             <p class="slider-explanation">Health levels: Healthy (≤5), Unhealthy (5.1-7), Concerning (>7)</p>
           </div>
@@ -832,7 +836,7 @@
       worms: 5,
       snails: 0,
       sowbugs: 0,
-      insects: 45,
+      insects: 50,
       flies: 30,
       midges: 5,
       eptIndex: 15,
@@ -899,7 +903,8 @@
           else if (value <= 5) return 'yellow';
           else return 'red';
         case 'insects':
-          if ((value > 40 && value <= 50) || (value > 80 && value <= 90)) return 'yellow';
+          if ((value > 40 && value < 50) || (value > 80 && value <= 90)) return 'yellow';
+          else if (value >= 50 && value <= 80) return 'green';
           else return 'red';
         case 'flies':
           if (value >= 21 && value <= 45) return 'green';
@@ -977,9 +982,188 @@
         overlay.style.backgroundColor = overlayColor;
         overlay.style.opacity = overlayColor === 'transparent' ? '0' : '0.5';
       }
-
-      console.log("Sum:", sum, "TER:", ter);
     }
+
+    function adjustRelatedSliders(sliderClass, value) {
+      const wormsSliders = document.querySelectorAll('.worms-slider');
+      const sowbugsSliders = document.querySelectorAll('.sowbugs-slider');
+      const snailsSliders = document.querySelectorAll('.snails-slider');
+      const insectsSliders = document.querySelectorAll('.insects-slider');
+      const fliesSliders = document.querySelectorAll('.flies-slider');
+      const midgesSliders = document.querySelectorAll('.midges-slider');
+      const eptSliders = document.querySelectorAll('.ept-slider');
+
+      let worms = Math.round(parseFloat(wormsSliders[0].value));
+      let sowbugs = Math.round(parseFloat(sowbugsSliders[0].value));
+      let snails = Math.round(parseFloat(snailsSliders[0].value));
+      let insects = Math.round(parseFloat(insectsSliders[0].value));
+      let flies = Math.round(parseFloat(fliesSliders[0].value));
+      let midges = Math.round(parseFloat(midgesSliders[0].value));
+      let ept = Math.round(parseFloat(eptSliders[0].value));
+
+      value = Math.round(value);
+
+      switch (sliderClass) {
+        case 'worms-slider':
+        case 'sowbugs-slider':
+        case 'snails-slider':
+          let totalNonInsects = worms + sowbugs + snails;
+          if (totalNonInsects >= insects) {  // Ensure total < 101
+            // First try to increase insects up to 99 (to keep total < 101)
+            let newInsects = Math.min(99, totalNonInsects);
+            insectsSliders.forEach(slider => {
+              slider.value = newInsects;
+              updateSliders('insects', newInsects);
+            });
+            insects = newInsects;
+
+            // If insects is already at 100, reduce the other sliders (WORMS, SNAILS, SOWBUGS)
+            if (insects === 100) {
+              let excess = totalNonInsects - 99;  // Ensure total < 101
+              let sliderGroups = [
+                { sliders: wormsSliders, value: worms },
+                { sliders: sowbugsSliders, value: sowbugs },
+                { sliders: snailsSliders, value: snails }
+              ].filter(group => !group.sliders[0].classList.contains(sliderClass));
+
+              let reduction = Math.round(excess / 2); // Divide by 2 since we adjust two other sliders
+              sliderGroups.forEach(group => {
+                let newVal = Math.max(0, group.value - reduction);
+                group.sliders.forEach(slider => {
+                  slider.value = newVal;
+                  updateSliders(sliderMappings[slider.id], newVal);
+                });
+              });
+            }
+          }
+          break;
+
+        case 'insects-slider':
+          if (worms + sowbugs + snails > value) {
+            let excess = (worms + sowbugs + snails) - value;
+            let sliderGroups = [
+              { sliders: wormsSliders, value: worms },
+              { sliders: sowbugsSliders, value: sowbugs },
+              { sliders: snailsSliders, value: snails }
+            ];
+
+            let reduction = Math.round(excess / 3);
+            sliderGroups.forEach(group => {
+              let newVal = Math.max(0, group.value - reduction);
+              group.sliders.forEach(slider => {
+                slider.value = newVal;
+                updateSliders(sliderMappings[slider.id], newVal);
+              });
+            });
+          }
+          if (value < flies) {
+            fliesSliders.forEach(slider => {
+              slider.value = value;
+              updateSliders('flies', value);
+            });
+            if (value < midges) {
+              midgesSliders.forEach(slider => {
+                slider.value = value;
+                updateSliders('midges', value);
+              });
+            }
+          }
+          if (value < ept) {
+            eptSliders.forEach(slider => {
+              slider.value = value;
+              updateSliders('eptIndex', value);
+            });
+          }
+          break;
+
+        case 'midges-slider':
+          if (value > flies) {
+            flies = value;
+            fliesSliders.forEach(slider => {
+              slider.value = value;
+              updateSliders('flies', value);
+            });
+          }
+          if (flies > insects) {
+            insects = flies;
+            insectsSliders.forEach(slider => {
+              slider.value = flies;
+              updateSliders('insects', flies);
+            });
+          }
+          break;
+
+        case 'flies-slider':
+          if (value < midges) {
+            midgesSliders.forEach(slider => {
+              slider.value = value;
+              updateSliders('midges', value);
+            });
+          }
+          if (value > insects) {
+            insectsSliders.forEach(slider => {
+              slider.value = value;
+              updateSliders('insects', value);
+            });
+          }
+          break;
+
+        case 'ept-slider':
+          if (value > insects) {
+            insectsSliders.forEach(slider => {
+              slider.value = value;
+              updateSliders('insects', value);
+            });
+          }
+          break;
+      }
+
+      // Ensure FLIES + EPT <= INSECTS
+      if (flies + ept > insects) {
+        let excess = Math.round((flies + ept) - insects);
+        if (flies > ept) {
+          let newFlies = flies - excess;
+          fliesSliders.forEach(slider => {
+            slider.value = newFlies;
+            updateSliders('flies', newFlies);
+          });
+          if (newFlies < midges) {
+            midgesSliders.forEach(slider => {
+              slider.value = newFlies;
+              updateSliders('midges', newFlies);
+            });
+          }
+        } else {
+          let newEpt = ept - excess;
+          eptSliders.forEach(slider => {
+            slider.value = newEpt;
+            updateSliders('eptIndex', newEpt);
+          });
+        }
+      }
+
+      // Final check to ensure WORMS + SNAILS + SOWBUGS + INSECTS < 101
+      let finalTotal = worms + sowbugs + snails + insects;
+      if (finalTotal >= 101) {
+        let excess = finalTotal - 100;
+        let sliderGroups = [
+          { sliders: wormsSliders, value: worms },
+          { sliders: sowbugsSliders, value: sowbugs },
+          { sliders: snailsSliders, value: snails },
+          { sliders: insectsSliders, value: insects }
+        ].filter(group => group.value > 0);
+
+        let reduction = Math.round(excess / sliderGroups.length);
+        sliderGroups.forEach(group => {
+          let newVal = Math.max(0, group.value - reduction);
+          group.sliders.forEach(slider => {
+            slider.value = newVal;
+            updateSliders(sliderMappings[slider.id], newVal);
+          });
+        });
+      }
+    }
+
 
     for (const [sliderId, indicator] of Object.entries(sliderMappings)) {
       const slider = document.getElementById(sliderId);
@@ -996,9 +1180,20 @@
       slider.addEventListener('input', function () {
         const sliderId = this.id;
         const indicator = sliderMappings[sliderId];
-        const value = parseFloat(this.value);
+        const value = Math.round(parseFloat(this.value));
+
+        const sliderClass = this.className.split(' ')[0];
+        document.querySelectorAll(`.${sliderClass}`).forEach(s => {
+          s.value = value;
+          updateSliders(sliderMappings[s.id], value);
+        });
+
         indicatorValues[indicator] = value;
-        updateSliders(indicator, value);
+
+        if (sliderId.includes('-2') || sliderId.includes('-3') || sliderId.includes('-4')) {
+          adjustRelatedSliders(sliderClass, value);
+        }
+
         calculateTER();
       });
     });
@@ -1007,7 +1202,7 @@
       2023: { species: 15, 'dominant-species': 25, worms: 8, snails: 2, sowbugs: 1, insects: 60, flies: 30, midges: 10, 'ept-index': 20, hbi: 4.5 },
       2024: { species: 12, 'dominant-species': 35, worms: 12, snails: 5, sowbugs: 3, insects: 55, flies: 28, midges: 15, 'ept-index': 18, hbi: 5.0 },
       defaultValues: {
-        species: 14, dominantSpecies: 30, worms: 5, snails: 0, sowbugs: 0, insects: 45, flies: 30, midges: 5, eptIndex: 15, hbi: 3.0
+        species: 14, dominantSpecies: 30, worms: 5, snails: 0, sowbugs: 0, insects: 50, flies: 30, midges: 5, eptIndex: 15, hbi: 3.0
       }
     };
 
@@ -1016,14 +1211,12 @@
         e.preventDefault();
         const linkText = link.textContent;
         if (linkText === 'View Default Data') {
-          // Reset to default values
           const defaultValues = data.defaultValues;
           for (const [indicator, value] of Object.entries(defaultValues)) {
             indicatorValues[indicator] = value;
             updateSliders(indicator, value);
           }
         } else {
-          // Load data for 2023 or 2024
           const year = linkText;
           for (const [key, value] of Object.entries(data[year])) {
             const indicator = key.replace('ept-index', 'eptIndex').replace('dominant-species', 'dominantSpecies');
