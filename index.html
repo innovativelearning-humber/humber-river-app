@@ -1,12 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
 
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Humber River</title>
-  <link rel="icon" type="image/x-icon" href="/humber-river-app/src/img/favicon.ico" />
-  <style>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Humber River</title>
+    <link rel="icon" type="image/x-icon"
+      href="/humber-river-app/src/img/favicon.ico" />
+    <style>
     @import url("https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300..800;1,300..800&display=swap");
 
     * {
@@ -493,254 +494,321 @@
       }
     }
   </style>
-</head>
+  </head>
 
-<body>
-  <header>
-    <a href="https://humber.ca">
-      <img class="logo" src="/humber-river-app/src/img/humber_logo.png" alt="Humber Polytechnic Logo" />
-    </a>
-    <h1>The Life in the Humber River / Gabekanaang-ziibi / Niwa'ah Onega'gaih'ih</h1>
-  </header>
-  <section class="page-nav">
-    <nav class="page-nav" role="navigation" aria-label="Page Navigation">
-      <div class="page-nav-button">
-        <button class="inactive" aria-label="Step 1" data-page="1">1</button>
-        <span>Number of Species</span>
-      </div>
-      <hr />
-      <div class="page-nav-button">
-        <button class="inactive" aria-label="Step 2" data-page="2">2</button>
-        <span>Species Distribution</span>
-      </div>
-      <hr />
-      <div class="page-nav-button">
-        <button class="inactive" aria-label="Step 3" data-page="3">3</button>
-        <span>Insects</span>
-      </div>
-      <hr />
-      <div class="page-nav-button">
-        <button class="inactive" aria-label="Step 4" data-page="4">4</button>
-        <span>Overview</span>
-      </div>
-    </nav>
-  </section>
-  <section class="main">
-    <div class="river-img-container" role="img" aria-label="Humber River">
-      <div id="ter-display">
-        TER: <span id="ter-score">0</span> - <span id="ter-value">GREEN Unimpaired</span>
-      </div>
-      <div class="overlay"></div>
-    </div>
-    <div class="sliders-container">
-      <div id="page-intro" class="content-page active">
-        <div class="intro-text">
-          <p>Welcome to the Humber River Health Study. This interactive experience will guide you through our findings
-            on the ecological health of the Humber River ecosystem.</p>
-          <p>This study is a collaboration between Humber Polytechnic and local conservation authorities to monitor and
-            improve water quality and biodiversity in this important watershed.</p>
-          <a href="#" class="continue-link" data-target="1">Begin Journey <span aria-hidden="true">></span></a>
-          <br />
-          <img src="/humber-river-app/src/img/bugs-template.webp" alt="a template of all bugs" width="80%" style="margin-top: 15px;">
+  <body>
+    <header>
+      <a href="https://humber.ca">
+        <img class="logo" src="/humber-river-app/src/img/humber_logo.png"
+          alt="Humber Polytechnic Logo" />
+      </a>
+      <h1>The Life in the Humber River / Gabekanaang-ziibi / Niwa'ah
+        Onega'gaih'ih</h1>
+    </header>
+    <section class="page-nav">
+      <nav class="page-nav" role="navigation" aria-label="Page Navigation">
+        <div class="page-nav-button">
+          <button class="inactive" aria-label="Step 1" data-page="1">1</button>
+          <span>Number of Species</span>
         </div>
-      </div>
-      <div id="page-1" class="content-page">
-        <div class="intro-text">
-          <h2>
-            Number of Species
-          </h2>
-          <p>A diverse sample indicates the river is healthy enough to support many species. A healthy diversity for the
-            Humber River would include more than 12 species in a sample, with a fairly even distribution of all species,
-            and not too many of any single species.</p>
-          <p>Species slider default setting is healthiest setting.</p>
-          <p>Move the slider up and down to see what happens to the river when diversity is limited.</p>
+        <hr />
+        <div class="page-nav-button">
+          <button class="inactive" aria-label="Step 2" data-page="2">2</button>
+          <span>Species Distribution</span>
         </div>
-        <div class="sliders">
-          <div class="slider-container">
-            <label for="species-slider-1">Species:</label>
-            <input type="range" id="species-slider-1" class="species-slider" min="0" max="28" step="1" value="14">
-            <span id="species-value-1">14</span>
-            <p class="slider-explanation">Health levels: Healthy (≥12), Unhealthy (11), Concerning (≤10)</p>
-          </div>
-          <div class="slider-container">
-            <label for="dominant-species-slider-1">Dominant Species:</label>
-            <input type="range" id="dominant-species-slider-1" class="dominant-species-slider" min="0" max="100"
-              step="1" value="30">
-            <span id="dominant-species-value-1">30</span>
-            <p class="slider-explanation">Health levels: Healthy (≤40), Unhealthy (41-45), Concerning (≥46)</p>
+        <hr />
+        <div class="page-nav-button">
+          <button class="inactive" aria-label="Step 3" data-page="3">3</button>
+          <span>Insects</span>
+        </div>
+        <hr />
+        <div class="page-nav-button">
+          <button class="inactive" aria-label="Step 4" data-page="4">4</button>
+          <span>Overview</span>
+        </div>
+      </nav>
+    </section>
+    <section class="main">
+      <div class="river-img-container" role="img" aria-label="Humber River">
+        <div id="ter-display">
+          TER: <span id="ter-score">0</span> - <span id="ter-value">GREEN
+            Unimpaired</span>
+        </div>
+        <div class="overlay"></div>
+      </div>
+      <div class="sliders-container">
+        <div id="page-intro" class="content-page active">
+          <div class="intro-text">
+            <p>Welcome to the Humber River Health Study. This interactive
+              experience will guide you through our findings
+              on the ecological health of the Humber River ecosystem.</p>
+            <p>This study is a collaboration between Humber Polytechnic and
+              local conservation authorities to monitor and
+              improve water quality and biodiversity in this important
+              watershed.</p>
+            <a href="#" class="continue-link" data-target="1">Begin Journey
+              <span aria-hidden="true">></span></a>
+            <br />
+            <button class="bug-gallery-btn" id="open-bug-gallery">View Bug
+              Gallery</button>
           </div>
         </div>
-        <a href="#" class="continue-link" data-target="2">Continue to Step 2</a>
+        <div id="page-1" class="content-page">
+          <div class="intro-text">
+            <h2>
+              Number of Species
+            </h2>
+            <p>A diverse sample indicates the river is healthy enough to support
+              many species. A healthy diversity for the
+              Humber River would include more than 12 species in a sample, with
+              a fairly even distribution of all species,
+              and not too many of any single species.</p>
+            <p>Species slider default setting is healthiest setting.</p>
+            <p>Move the slider up and down to see what happens to the river when
+              diversity is limited.</p>
+          </div>
+          <div class="sliders">
+            <div class="slider-container">
+              <label for="species-slider-1">Species:</label>
+              <input type="range" id="species-slider-1" class="species-slider"
+                min="0" max="28" step="1" value="14">
+              <span id="species-value-1">14</span>
+              <p class="slider-explanation">Health levels: Healthy (≥12),
+                Unhealthy (11), Concerning (≤10)</p>
+            </div>
+            <div class="slider-container">
+              <label for="dominant-species-slider-1">Dominant Species:</label>
+              <input type="range" id="dominant-species-slider-1"
+                class="dominant-species-slider" min="0" max="100"
+                step="1" value="30">
+              <span id="dominant-species-value-1">30</span>
+              <p class="slider-explanation">Health levels: Healthy (≤40),
+                Unhealthy (41-45), Concerning (≥46)</p>
+            </div>
+          </div>
+          <a href="#" class="continue-link" data-target="2">Continue to Step
+            2</a>
+        </div>
+        <div id="page-2" class="content-page">
+          <div class="intro-text">
+            <h2>
+              Species Distribution
+            </h2>
+            <p>Some types of species can tolerate pollution better than others.
+              When we collect a sample of 100 species,
+              we can
+              evaluate river health by looking at the representation of
+              particular species in the sample.</p>
+            <p>Here is a healthy distribution of worms, snails, and sowbugs.
+              Adjust the levels to see what happens to the
+              river.</p>
+            <p>Click explore data to explore the distribution of worms, snails,
+              and sowbugs in previous years. Are we
+              getting better or worse?
+            </p>
+          </div>
+          <div class="sliders">
+            <div class="slider-container">
+              <label for="worms-slider-2">Worms:</label>
+              <input type="range" id="worms-slider-2" class="worms-slider"
+                min="0" max="100" step="1" value="5">
+              <span id="worms-value-2">5</span>
+              <p class="slider-explanation">Health levels: Healthy (≤10),
+                Unhealthy (11-30), Concerning (≥31)</p>
+            </div>
+            <div class="slider-container">
+              <label for="snails-slider-2">Snails:</label>
+              <input type="range" id="snails-slider-2" class="snails-slider"
+                min="0" max="100" step="1" value="0">
+              <span id="snails-value-2">0</span>
+              <p class="slider-explanation">Health levels: Healthy (0),
+                Unhealthy (1-10), Concerning (≥11)</p>
+            </div>
+            <div class="slider-container">
+              <label for="sowbugs-slider-2">Sowbugs:</label>
+              <input type="range" id="sowbugs-slider-2" class="sowbugs-slider"
+                min="0" max="100" step="1" value="0">
+              <span id="sowbugs-value-2">0</span>
+              <p class="slider-explanation">Health levels: Healthy (0),
+                Unhealthy (1-5), Concerning (≥6)</p>
+            </div>
+          </div>
+          <a href="#" class="continue-link" data-target="3">Continue to Step
+            3</a>
+        </div>
+        <div id="page-3" class="content-page">
+          <div class="intro-text">
+            <h2>
+              Insects
+            </h2>
+            <p>Insects are a special group of invertebrate species that can tell
+              us even more about river health. A
+              healthy sample should be mostly insects but not all insects.
+              Furthermore, the presence and abundance of
+              different insect species can indicate different things.</p>
+            <p>Here is a healthy distribution of insects and subgroups of
+              insects. Adjust the levels to see what happens
+              to the river.</p>
+            <p>Click explore data to explore the distribution of insects. Look
+              at the amounts from previous years. Are we
+              getting better or
+              worse?</p>
+          </div>
+          <div class="sliders">
+            <div class="slider-container">
+              <label for="insects-slider-3">Insects:</label>
+              <input type="range" id="insects-slider-3" class="insects-slider"
+                min="0" max="100" step="1" value="50">
+              <span id="insects-value-3">50</span>
+              <p class="slider-explanation">Health levels: Healthy (50-80),
+                Unhealthy (41-49, 81-90), Concerning (0-40,
+                91-100)</p>
+            </div>
+            <div class="slider-container">
+              <label for="flies-slider-3">Flies:</label>
+              <input type="range" id="flies-slider-3" class="flies-slider"
+                min="0" max="100" step="1" value="30">
+              <span id="flies-value-3">30</span>
+              <p class="slider-explanation">Health levels: Healthy (21-45),
+                Unhealthy (16-20, 46-50), Concerning (0-15,
+                51-100)</p>
+            </div>
+            <div class="slider-container">
+              <label for="midges-slider-3">Midges:</label>
+              <input type="range" id="midges-slider-3" class="midges-slider"
+                min="0" max="100" step="1" value="5">
+              <span id="midges-value-3">5</span>
+              <p class="slider-explanation">Health levels: Healthy (≤10),
+                Unhealthy (11-40), Concerning (≥41)</p>
+            </div>
+            <div class="slider-container">
+              <label for="ept-index-slider-3">EPT Index:</label>
+              <input type="range" id="ept-index-slider-3" class="ept-slider"
+                min="0" max="100" step="1" value="15">
+              <span id="ept-index-value-3">15</span>
+              <p class="slider-explanation">Health levels: Healthy (≥11),
+                Unhealthy (6-10), Concerning (≤5)</p>
+            </div>
+          </div>
+          <a href="#" class="continue-link" data-target="4">Continue to Step
+            4</a>
+        </div>
+        <div id="page-4" class="content-page">
+          <div class="intro-text">
+            <h2>
+              Overview
+            </h2>
+            <p>To get an accurate picture of river health we like to take into
+              account all the indicators at once. We also
+              include the Hilsenhoff Biotic Index (HBI), which is calculated
+              with a specific pollution weighting for each
+              species, where lower HBI values indicate better river health.</p>
+            <p>A healthy sample should have more than half of the indicators
+              pointing to healthy river conditions.</p>
+            <p>Click explore data to look at the indicators from previous years.
+              Are we getting better or worse?</p>
+          </div>
+          <div class="sliders">
+            <div class="slider-container">
+              <label for="species-slider-4">Species:</label>
+              <input type="range" id="species-slider-4" class="species-slider"
+                min="0" max="28" step="1" value="14">
+              <span id="species-value-4">14</span>
+              <p class="slider-explanation">Health levels: Healthy (≥12),
+                Unhealthy (11), Concerning (≤10)</p>
+            </div>
+            <div class="slider-container">
+              <label for="dominant-species-slider-4">Dominant Species:</label>
+              <input type="range" id="dominant-species-slider-4"
+                class="dominant-species-slider" min="0" max="100"
+                step="1" value="30">
+              <span id="dominant-species-value-4">30</span>
+              <p class="slider-explanation">Health levels: Healthy (≤40),
+                Unhealthy (41-45), Concerning (≥46)</p>
+            </div>
+            <div class="slider-container">
+              <label for="worms-slider-4">Worms:</label>
+              <input type="range" id="worms-slider-4" class="worms-slider"
+                min="0" max="100" step="1" value="5">
+              <span id="worms-value-4">5</span>
+              <p class="slider-explanation">Health levels: Healthy (≤10),
+                Unhealthy (11-30), Concerning (≥31)</p>
+            </div>
+            <div class="slider-container">
+              <label for="snails-slider-4">Snails:</label>
+              <input type="range" id="snails-slider-4" class="snails-slider"
+                min="0" max="100" step="1" value="0">
+              <span id="snails-value-4">0</span>
+              <p class="slider-explanation">Health levels: Healthy (0),
+                Unhealthy (1-10), Concerning (≥11)</p>
+            </div>
+            <div class="slider-container">
+              <label for="sowbugs-slider-4">Sowbugs:</label>
+              <input type="range" id="sowbugs-slider-4" class="sowbugs-slider"
+                min="0" max="100" step="1" value="0">
+              <span id="sowbugs-value-4">0</span>
+              <p class="slider-explanation">Health levels: Healthy (0),
+                Unhealthy (1-5), Concerning (≥6)</p>
+            </div>
+            <div class="slider-container">
+              <label for="insects-slider-4">Insects:</label>
+              <input type="range" id="insects-slider-4" class="insects-slider"
+                min="0" max="100" step="1" value="50">
+              <span id="insects-value-4">50</span>
+              <p class="slider-explanation">Health levels: Healthy (50-80),
+                Unhealthy (41-49, 81-90), Concerning (0-40,
+                91-100)</p>
+            </div>
+            <div class="slider-container">
+              <label for="flies-slider-4">Flies:</label>
+              <input type="range" id="flies-slider-4" class="flies-slider"
+                min="0" max="100" step="1" value="30">
+              <span id="flies-value-4">30</span>
+              <p class="slider-explanation">Health levels: Healthy (21-45),
+                Unhealthy (16-20, 46-50), Concerning (0-15,
+                51-100)</p>
+            </div>
+            <div class="slider-container">
+              <label for="midges-slider-4">Midges:</label>
+              <input type="range" id="midges-slider-4" class="midges-slider"
+                min="0" max="100" step="1" value="5">
+              <span id="midges-value-4">5</span>
+              <p class="slider-explanation">Health levels: Healthy (≤10),
+                Unhealthy (11-40), Concerning (≥41)</p>
+            </div>
+            <div class="slider-container">
+              <label for="ept-index-slider-4">EPT Index:</label>
+              <input type="range" id="ept-index-slider-4" class="ept-slider"
+                min="0" max="100" step="1" value="15">
+              <span id="ept-index-value-4">15</span>
+              <p class="slider-explanation">Health levels: Healthy (≥11),
+                Unhealthy (6-10), Concerning (≤5)</p>
+            </div>
+            <div class="slider-container">
+              <label for="hbi-slider-4">Hilsenhoff Biotic Index (HBI):</label>
+              <input type="range" id="hbi-slider-4" class="hbi-slider" min="0"
+                max="10" step="0.1" value="3.0">
+              <span id="hbi-value-4">3.0</span>
+              <p class="slider-explanation">Health levels: Healthy (≤5),
+                Unhealthy (5.1-7), Concerning (>7)</p>
+            </div>
+          </div>
+          <a href="#" class="continue-link" data-target="intro">Start Over <span
+              aria-hidden="true">></span></a>
+        </div>
+        <div class="explore-data">
+          <button class="explore-data-btn" id="explore-data-btn">Explore
+            data</button>
+          <ul class="data-link" id="data-link">
+            <li><a href="#" aria-label="Explore data from 2023">2023</a></li>
+            <li><a href="#" aria-label="Explore data from 2024">2024</a></li>
+            <li><a href="#" aria-label="View Default Data">View Default
+                Data</a></li>
+          </ul>
+        </div>
       </div>
-      <div id="page-2" class="content-page">
-        <div class="intro-text">
-          <h2>
-            Species Distribution
-          </h2>
-          <p>Some types of species can tolerate pollution better than others. When we collect a sample of 100 species,
-            we can
-            evaluate river health by looking at the representation of particular species in the sample.</p>
-          <p>Here is a healthy distribution of worms, snails, and sowbugs. Adjust the levels to see what happens to the
-            river.</p>
-          <p>Click explore data to explore the distribution of worms, snails, and sowbugs in previous years. Are we
-            getting better or worse?
-          </p>
-        </div>
-        <div class="sliders">
-          <div class="slider-container">
-            <label for="worms-slider-2">Worms:</label>
-            <input type="range" id="worms-slider-2" class="worms-slider" min="0" max="100" step="1" value="5">
-            <span id="worms-value-2">5</span>
-            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-30), Concerning (≥31)</p>
-          </div>
-          <div class="slider-container">
-            <label for="snails-slider-2">Snails:</label>
-            <input type="range" id="snails-slider-2" class="snails-slider" min="0" max="100" step="1" value="0">
-            <span id="snails-value-2">0</span>
-            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-10), Concerning (≥11)</p>
-          </div>
-          <div class="slider-container">
-            <label for="sowbugs-slider-2">Sowbugs:</label>
-            <input type="range" id="sowbugs-slider-2" class="sowbugs-slider" min="0" max="100" step="1" value="0">
-            <span id="sowbugs-value-2">0</span>
-            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-5), Concerning (≥6)</p>
-          </div>
-        </div>
-        <a href="#" class="continue-link" data-target="3">Continue to Step 3</a>
-      </div>
-      <div id="page-3" class="content-page">
-        <div class="intro-text">
-          <h2>
-            Insects
-          </h2>
-          <p>Insects are a special group of invertebrate species that can tell us even more about river health. A
-            healthy sample should be mostly insects but not all insects. Furthermore, the presence and abundance of
-            different insect species can indicate different things.</p>
-          <p>Here is a healthy distribution of insects and subgroups of insects. Adjust the levels to see what happens
-            to the river.</p>
-          <p>Click explore data to explore the distribution of insects. Look at the amounts from previous years. Are we
-            getting better or
-            worse?</p>
-        </div>
-        <div class="sliders">
-          <div class="slider-container">
-            <label for="insects-slider-3">Insects:</label>
-            <input type="range" id="insects-slider-3" class="insects-slider" min="0" max="100" step="1" value="50">
-            <span id="insects-value-3">50</span>
-            <p class="slider-explanation">Health levels: Healthy (50-80), Unhealthy (41-49, 81-90), Concerning (0-40,
-              91-100)</p>
-          </div>
-          <div class="slider-container">
-            <label for="flies-slider-3">Flies:</label>
-            <input type="range" id="flies-slider-3" class="flies-slider" min="0" max="100" step="1" value="30">
-            <span id="flies-value-3">30</span>
-            <p class="slider-explanation">Health levels: Healthy (21-45), Unhealthy (16-20, 46-50), Concerning (0-15,
-              51-100)</p>
-          </div>
-          <div class="slider-container">
-            <label for="midges-slider-3">Midges:</label>
-            <input type="range" id="midges-slider-3" class="midges-slider" min="0" max="100" step="1" value="5">
-            <span id="midges-value-3">5</span>
-            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-40), Concerning (≥41)</p>
-          </div>
-          <div class="slider-container">
-            <label for="ept-index-slider-3">EPT Index:</label>
-            <input type="range" id="ept-index-slider-3" class="ept-slider" min="0" max="100" step="1" value="15">
-            <span id="ept-index-value-3">15</span>
-            <p class="slider-explanation">Health levels: Healthy (≥11), Unhealthy (6-10), Concerning (≤5)</p>
-          </div>
-        </div>
-        <a href="#" class="continue-link" data-target="4">Continue to Step 4</a>
-      </div>
-      <div id="page-4" class="content-page">
-        <div class="intro-text">
-          <h2>
-            Overview
-          </h2>
-          <p>To get an accurate picture of river health we like to take into account all the indicators at once. We also
-            include the Hilsenhoff Biotic Index (HBI), which is calculated with a specific pollution weighting for each
-            species, where lower HBI values indicate better river health.</p>
-          <p>A healthy sample should have more than half of the indicators pointing to healthy river conditions.</p>
-          <p>Click explore data to look at the indicators from previous years. Are we getting better or worse?</p>
-        </div>
-        <div class="sliders">
-          <div class="slider-container">
-            <label for="species-slider-4">Species:</label>
-            <input type="range" id="species-slider-4" class="species-slider" min="0" max="28" step="1" value="14">
-            <span id="species-value-4">14</span>
-            <p class="slider-explanation">Health levels: Healthy (≥12), Unhealthy (11), Concerning (≤10)</p>
-          </div>
-          <div class="slider-container">
-            <label for="dominant-species-slider-4">Dominant Species:</label>
-            <input type="range" id="dominant-species-slider-4" class="dominant-species-slider" min="0" max="100"
-              step="1" value="30">
-            <span id="dominant-species-value-4">30</span>
-            <p class="slider-explanation">Health levels: Healthy (≤40), Unhealthy (41-45), Concerning (≥46)</p>
-          </div>
-          <div class="slider-container">
-            <label for="worms-slider-4">Worms:</label>
-            <input type="range" id="worms-slider-4" class="worms-slider" min="0" max="100" step="1" value="5">
-            <span id="worms-value-4">5</span>
-            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-30), Concerning (≥31)</p>
-          </div>
-          <div class="slider-container">
-            <label for="snails-slider-4">Snails:</label>
-            <input type="range" id="snails-slider-4" class="snails-slider" min="0" max="100" step="1" value="0">
-            <span id="snails-value-4">0</span>
-            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-10), Concerning (≥11)</p>
-          </div>
-          <div class="slider-container">
-            <label for="sowbugs-slider-4">Sowbugs:</label>
-            <input type="range" id="sowbugs-slider-4" class="sowbugs-slider" min="0" max="100" step="1" value="0">
-            <span id="sowbugs-value-4">0</span>
-            <p class="slider-explanation">Health levels: Healthy (0), Unhealthy (1-5), Concerning (≥6)</p>
-          </div>
-          <div class="slider-container">
-            <label for="insects-slider-4">Insects:</label>
-            <input type="range" id="insects-slider-4" class="insects-slider" min="0" max="100" step="1" value="50">
-            <span id="insects-value-4">50</span>
-            <p class="slider-explanation">Health levels: Healthy (50-80), Unhealthy (41-49, 81-90), Concerning (0-40,
-              91-100)</p>
-          </div>
-          <div class="slider-container">
-            <label for="flies-slider-4">Flies:</label>
-            <input type="range" id="flies-slider-4" class="flies-slider" min="0" max="100" step="1" value="30">
-            <span id="flies-value-4">30</span>
-            <p class="slider-explanation">Health levels: Healthy (21-45), Unhealthy (16-20, 46-50), Concerning (0-15,
-              51-100)</p>
-          </div>
-          <div class="slider-container">
-            <label for="midges-slider-4">Midges:</label>
-            <input type="range" id="midges-slider-4" class="midges-slider" min="0" max="100" step="1" value="5">
-            <span id="midges-value-4">5</span>
-            <p class="slider-explanation">Health levels: Healthy (≤10), Unhealthy (11-40), Concerning (≥41)</p>
-          </div>
-          <div class="slider-container">
-            <label for="ept-index-slider-4">EPT Index:</label>
-            <input type="range" id="ept-index-slider-4" class="ept-slider" min="0" max="100" step="1" value="15">
-            <span id="ept-index-value-4">15</span>
-            <p class="slider-explanation">Health levels: Healthy (≥11), Unhealthy (6-10), Concerning (≤5)</p>
-          </div>
-          <div class="slider-container">
-            <label for="hbi-slider-4">Hilsenhoff Biotic Index (HBI):</label>
-            <input type="range" id="hbi-slider-4" class="hbi-slider" min="0" max="10" step="0.1" value="3.0">
-            <span id="hbi-value-4">3.0</span>
-            <p class="slider-explanation">Health levels: Healthy (≤5), Unhealthy (5.1-7), Concerning (>7)</p>
-          </div>
-        </div>
-        <a href="#" class="continue-link" data-target="intro">Start Over <span aria-hidden="true">></span></a>
-      </div>
-      <div class="explore-data">
-        <button class="explore-data-btn" id="explore-data-btn">Explore data</button>
-        <ul class="data-link" id="data-link">
-          <li><a href="#" aria-label="Explore data from 2023">2023</a></li>
-          <li><a href="#" aria-label="Explore data from 2024">2024</a></li>
-          <li><a href="#" aria-label="View Default Data">View Default Data</a></li>
-        </ul>
-      </div>
-    </div>
-  </section>
-  <script>
+    </section>
+    <script>
     const navButtons = document.querySelectorAll('.page-nav button');
     const contentPages = document.querySelectorAll('.content-page');
     const continueLinks = document.querySelectorAll('.continue-link');
@@ -1230,6 +1298,334 @@
 
     calculateTER();
   </script>
-</body>
+    <!-- popup -->
+    <style>
+    .modal {
+      display: none;
+      position: fixed;
+      z-index: 2000;
+      left: 0;
+      top: 0;
+      width: 100%;
+      height: 100%;
+      overflow: hidden;
+      background-color: rgba(0, 0, 0, 0.7);
+    }
 
+    .modal-content {
+      background-color: #fefefe;
+      margin: 5% auto;
+      padding: 20px;
+      border: 1px solid #888;
+      border-radius: 10px;
+      width: 80%;
+      max-width: 900px;
+      max-height: 80vh;
+      overflow-y: auto;
+    }
+
+    .close {
+      color: #aaa;
+      float: right;
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .close:hover,
+    .close:focus {
+      color: black;
+      text-decoration: none;
+      cursor: pointer;
+    }
+
+    .tab {
+      overflow: hidden;
+      border-bottom: 1px solid #ccc;
+      background-color: #f1f1f1;
+      display: flex;
+      margin-bottom: 20px;
+    }
+
+    .tab button {
+      flex: 1;
+      background-color: inherit;
+      float: left;
+      border: none;
+      outline: none;
+      cursor: pointer;
+      padding: 14px 16px;
+      transition: 0.3s;
+      font-size: 17px;
+      border-radius: 0;
+      font-weight: 600;
+    }
+
+    .tab button:hover {
+      background-color: #ddd;
+    }
+
+    .tab button.active {
+      background-color: #fff;
+      border-bottom: 3px solid #103f2e;
+    }
+
+    .tab button.most-tolerant {
+      color: #103f2e;
+    }
+
+    .tab button.moderately-tolerant {
+      color: #FFA500;
+    }
+
+    .tab button.least-tolerant {
+      color: #ff0000;
+    }
+
+    .tabcontent {
+      display: none;
+      padding: 6px 12px;
+    }
+
+    .tabcontent.active {
+      display: block;
+    }
+
+    .bug-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .bug-card {
+      border: 1px solid #ddd;
+      border-radius: 5px;
+      padding: 10px;
+      text-align: center;
+    }
+
+    .bug-card img {
+      width: 100%;
+      height: auto;
+      max-height: 300px;
+      object-fit: contain;
+      transition: transform 0.3s ease;
+    }
+
+    .attribution {
+      text-align: center;
+      margin-top: 20px;
+      font-style: italic;
+      color: #666;
+    }
+
+    .bug-gallery-btn {
+      background-color: #103f2e;
+      color: white;
+      border: none;
+      border-radius: 5px;
+      padding: 10px 15px;
+      font-size: 16px;
+      cursor: pointer;
+      margin-top: 15px;
+      display: inline-block;
+    }
+
+    .bug-gallery-btn:hover {
+      background-color: #0c2e22;
+    }
+    </style>
+    <!-- Modal for Bug Gallery -->
+    <div id="bug-modal" class="modal">
+      <div class="modal-content">
+        <span class="close">&times;</span>
+        <h2>Aquatic Bugs by Pollution Tolerance</h2>
+
+        <div class="tab">
+          <button class="tablinks most-tolerant active"
+            onclick="openTab(event, 'most-tolerant')">Most Tolerant</button>
+          <button class="tablinks moderately-tolerant"
+            onclick="openTab(event, 'moderately-tolerant')">Moderately
+            Tolerant</button>
+          <button class="tablinks least-tolerant"
+            onclick="openTab(event, 'least-tolerant')">Least Tolerant</button>
+        </div>
+
+        <div id="most-tolerant" class="tabcontent active">
+          <div class="bug-gallery">
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 1.png"
+                alt="Most Tolerant Bug 1">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 2.png"
+                alt="Most Tolerant Bug 2">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 3.png"
+                alt="Most Tolerant Bug 3">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 4.png"
+                alt="Most Tolerant Bug 4">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 5.png"
+                alt="Most Tolerant Bug 5">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 6.png"
+                alt="Most Tolerant Bug 6">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 7.png"
+                alt="Most Tolerant Bug 7">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 8.png"
+                alt="Most Tolerant Bug 8">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 9.png"
+                alt="Most Tolerant Bug 9">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Most Tolerant 10.png"
+                alt="Most Tolerant Bug 10">
+            </div>
+          </div>
+        </div>
+
+        <div id="moderately-tolerant" class="tabcontent">
+          <div class="bug-gallery">
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 1.png"
+                alt="Moderately Tolerant Bug 1">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 2.png"
+                alt="Moderately Tolerant Bug 2">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 3.png"
+                alt="Moderately Tolerant Bug 3">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 4.png"
+                alt="Moderately Tolerant Bug 4">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 5.png"
+                alt="Moderately Tolerant Bug 5">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 6.png"
+                alt="Moderately Tolerant Bug 6">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 7.png"
+                alt="Moderately Tolerant Bug 7">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 8.png"
+                alt="Moderately Tolerant Bug 8">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 9.png"
+                alt="Moderately Tolerant Bug 9">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 10.png"
+                alt="Moderately Tolerant Bug 10">
+            </div>
+            <div class="bug-card">
+              <img
+                src="/humber-river-app/src/img/bugs/Moderately Tolerant 11.png"
+                alt="Moderately Tolerant Bug 11">
+            </div>
+          </div>
+        </div>
+
+        <div id="least-tolerant" class="tabcontent">
+          <div class="bug-gallery">
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Least Tolerant 1.png"
+                alt="Least Tolerant Bug 1">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Least Tolerant 2.png"
+                alt="Least Tolerant Bug 2">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Least Tolerant 3.png"
+                alt="Least Tolerant Bug 3">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Least Tolerant 4.png"
+                alt="Least Tolerant Bug 4">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Least Tolerant 5.png"
+                alt="Least Tolerant Bug 5">
+            </div>
+            <div class="bug-card">
+              <img src="/humber-river-app/src/img/bugs/Least Tolerant 6.png"
+                alt="Least Tolerant Bug 6">
+            </div>
+          </div>
+        </div>
+
+        <div class="attribution">
+          Images courtesy of EcoSpark (EcoSpark.ca)
+        </div>
+      </div>
+    </div>
+
+    <script>
+      function openTab(evt, tabName) {
+        const tabcontent = document.getElementsByClassName("tabcontent");
+        for (let i = 0; i < tabcontent.length; i++) {
+          tabcontent[i].classList.remove("active");
+        }
+    
+        const tablinks = document.getElementsByClassName("tablinks");
+        for (let i = 0; i < tablinks.length; i++) {
+          tablinks[i].classList.remove("active");
+        }
+    
+        document.getElementById(tabName).classList.add("active");
+        evt.currentTarget.classList.add("active");
+      }
+    
+      document.addEventListener("DOMContentLoaded", function () {
+        const modal = document.getElementById("bug-modal");
+        const btn = document.getElementById("open-bug-gallery");
+        const span = document.getElementsByClassName("close")[0];
+    
+        btn.onclick = function() {
+          modal.style.display = "block";
+        }
+    
+        span.onclick = function() {
+          modal.style.display = "none";
+        }
+    
+        window.onclick = function(event) {
+          if (event.target == modal) {
+            modal.style.display = "none";
+          }
+        }
+      });
+    </script>
+    <!-- end popup -->
+  </body>
 </html>
