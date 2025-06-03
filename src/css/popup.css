@@ -1,0 +1,133 @@
+.modal {
+  display: none;
+  position: fixed;
+  z-index: 2000;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: rgba(0, 0, 0, 0.7);
+}
+
+.modal-content {
+  background-color: #fefefe;
+  margin: 5% auto;
+  padding: 20px;
+  border: 1px solid #888;
+  border-radius: 10px;
+  width: 80%;
+  max-width: 900px;
+  max-height: 80vh;
+  overflow-y: auto;
+}
+
+.close {
+  color: #aaa;
+  float: right;
+  font-size: 28px;
+  font-weight: bold;
+}
+
+.close:hover,
+.close:focus {
+  color: black;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.tab {
+  overflow: hidden;
+  border-bottom: 1px solid #ccc;
+  background-color: #f1f1f1;
+  display: flex;
+  margin-bottom: 20px;
+}
+
+.tab button {
+  flex: 1;
+  background-color: inherit;
+  float: left;
+  border: none;
+  outline: none;
+  cursor: pointer;
+  padding: 14px 16px;
+  transition: 0.3s;
+  font-size: 17px;
+  border-radius: 0;
+  font-weight: 600;
+}
+
+.tab button:hover {
+  background-color: #ddd;
+}
+
+.tab button.active {
+  background-color: #fff;
+  border-bottom: 3px solid #103f2e;
+}
+
+.tab button.most-tolerant {
+  color: #103f2e;
+}
+
+.tab button.moderately-tolerant {
+  color: #FFA500;
+}
+
+.tab button.least-tolerant {
+  color: #ff0000;
+}
+
+.tabcontent {
+  display: none;
+  padding: 6px 12px;
+}
+
+.tabcontent.active {
+  display: block;
+}
+
+.bug-gallery {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
+  gap: 20px;
+}
+
+.bug-card {
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  padding: 10px;
+  text-align: center;
+}
+
+.bug-card img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: contain;
+  transition: transform 0.3s ease;
+}
+
+.attribution {
+  text-align: center;
+  margin-top: 20px;
+  font-style: italic;
+  color: #666;
+}
+
+.bug-gallery-btn {
+  background-color: #103f2e;
+  color: white;
+  border: none;
+  border-radius: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  cursor: pointer;
+  margin-top: 15px;
+  display: inline-block;
+}
+
+.bug-gallery-btn:hover {
+  background-color: #0c2e22;
+}
