@@ -39,7 +39,10 @@ function navigateToPage(newPageId) {
   }
 
   const pieDisplay = document.querySelector('#pie-display');
+  const eptDisplay = document.querySelector('#ept-display');
   const exploreData = document.querySelector('.explore-data');
+  const riverImgContainer = document.querySelector('.river-img-container');
+  
 
   // Apply classes after the animation completes
   setTimeout(() => {
@@ -57,11 +60,20 @@ function navigateToPage(newPageId) {
       pieDisplay.classList.remove('active');
     }
 
-    // Hide .explore-data on page-5
+    // Show #ept-display only on page-3
+    if (newPageId === 'page-3') {
+      eptDisplay.classList.add('active');
+    } else {
+      eptDisplay.classList.remove('active');
+    }
+
+    // Hide .explore-data and change river image on page-5
     if (newPageId === 'page-5') {
       exploreData.classList.add('hidden');
+      riverImgContainer.classList.add('real');
     } else {
       exploreData.classList.remove('hidden');
+      riverImgContainer.classList.remove('real');
     }
   }, 300); 
 }
