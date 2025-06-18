@@ -1,5 +1,7 @@
 # humber-river-app
 
+**Live Demo:** [Humber River App](https://innovativelearning-humber.github.io/humber-river-app/)
+
 ## Before & After
 ### Before
 <img width="1438" alt="image" src="https://github.com/user-attachments/assets/71cdae5f-f106-4121-a723-3f0e43ed356d" />
